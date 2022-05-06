@@ -43,10 +43,8 @@ const counterFunction = setInterval(_ => {
     const counterSeconds = Math.floor((diff % (1000 * 60)) / 1000);
     const counterMilliseconds = diff % (1000);
 
-    // counter.innerHTML = `Race begins in ${(days<10?'0':'')}${days}:${(hours<10?'0':'')}${hours}:${(minutes<10?'0':'')}${minutes}:${(seconds<10?'0':'')}${seconds}::${(mseconds<100?'0':'')}${mseconds}.`;
-    counter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
-
     if (diff < 0) {
+        clearInterval(counterFunction);
         counter.innerHTML = "Race has already started !";
-    }
+    } else counter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
 }, 50)
