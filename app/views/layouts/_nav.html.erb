@@ -1,1 +1,24 @@
-<p>Test</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-lime z-1">
+  <div class="container-fluid">
+    <%= link_to 'Boulder Bike Tour', root_path, class: "navbar-brand ms-3 fw-bold" %>
+    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-3 mb-2 mb-lg-0 justify-content-end flex-grow-1">
+        <li class="nav-item">
+            <%= link_to 'Photos', root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Locations', root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Riders', root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Contest', root_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
