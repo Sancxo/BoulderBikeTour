@@ -6,22 +6,47 @@ import "bootstrap"
 //= require popper
 //= require bootstrap
 
-const counter = document.createElement('p');
-document.getElementById('time-counter').appendChild(counter);
+const counter = document.getElementById('counter');
+const printRaceDate = document.getElementById('race-date');
 
-const yearNow = new Date().getFullYear();
-const raceStartTime = new Date(`April 1, ${yearNow + 1} 08:00:00`).getTime();
+// I use the following variables to reset the counter year each April 2nd,
+// so the counter demo works each years except on April 1st, where we display a message
+const dateNow = new Date();
+const yearNow = dateNow.getFullYear();
+const monthNow = dateNow.getMonth();
+const dayNow = dateNow.getDate(); 
 
-setInterval(_ => {
+const incInitYear = (monthNow < 3 || (monthNow === 3 && dayNow < 2)) ? 0 : 1;
+const raceInitYear = yearNow + incInitYear;
+
+const raceStartTime = new Date(`April 1, ${raceInitYear} 08:00:00`);
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wenesday', 'Thursday', 'Friday', 'Saturday'];
+
+const raceYear = raceStartTime.getFullYear();
+const raceMonth = 'April';
+const raceDay = days[raceStartTime.getDay()];
+const raceDate = '1st';
+const raceHours = String(raceStartTime.getHours()).padStart(2, '0');
+const raceMinutes = String(raceStartTime.getMinutes()).padStart(2, '0');
+const raceSeconds = String(raceStartTime.getSeconds()).padStart(2, '0');
+
+printRaceDate.innerHTML = `${raceDay}, ${raceMonth} ${raceDate}, ${raceYear} at ${raceHours}:${raceMinutes}:${raceSeconds}`;
+
+const counterFunction = setInterval(_ => {
     const timeNow = new Date().getTime();
-    const diff = raceStartTime - timeNow;
+    const diff = raceStartTime.getTime() - timeNow;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24))  / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    const mseconds = diff % (1000);
+    const counterDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const counterHours = Math.floor((diff % (1000 * 60 * 60 * 24))  / (1000 * 60 * 60));
+    const counterMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const counterSeconds = Math.floor((diff % (1000 * 60)) / 1000);
+    const counterMilliseconds = diff % (1000);
 
     // counter.innerHTML = `Race begins in ${(days<10?'0':'')}${days}:${(hours<10?'0':'')}${hours}:${(minutes<10?'0':'')}${minutes}:${(seconds<10?'0':'')}${seconds}::${(mseconds<100?'0':'')}${mseconds}.`;
-    counter.innerHTML = `Race begins in ${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}::${String(mseconds).padStart(3, '0')}.`;
+    counter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
+
+    if (diff < 0) {
+        counter.innerHTML = "Race has already started !";
+    }
 }, 50)
