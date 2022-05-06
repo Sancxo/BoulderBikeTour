@@ -2,11 +2,11 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
+    container_name: bbt_db
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: bbt_db
     ports:
       - 5432:5432
     volumes:
