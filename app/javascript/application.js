@@ -6,7 +6,7 @@ import "bootstrap"
 //= require popper
 //= require bootstrap
 
-const counter = document.getElementById('counter');
+const printCounter = document.getElementById('counter');
 const printRaceDate = document.getElementById('race-date');
 
 // I use the following variables to reset the counter year each April 2nd,
@@ -45,6 +45,6 @@ const counterFunction = setInterval(_ => {
 
     if (diff < 0) {
         clearInterval(counterFunction);
-        counter.innerHTML = "Race has already started !";
-    } else counter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
+        printCounter.innerHTML = "Race has already started !";
+    } else printCounter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
 }, 50)
