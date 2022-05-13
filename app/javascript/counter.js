@@ -1,5 +1,4 @@
-export default function counter() {
-    const printCounter = document.getElementById('counter');
+export default function runCounter(counter) {
     const printRaceDate = document.getElementById('race-date');
     
     // I use the following variables to reset the counter year each April 2nd,
@@ -38,7 +37,7 @@ export default function counter() {
     
         if (diff < 0) {
             clearInterval(counterFunction);
-            printCounter.innerHTML = "Race has already started !";
-        } else printCounter.innerHTML = `Race begins in ${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
+            counter.innerHTML = "Race has already started !";
+        } else counter.innerHTML = `Race begins in -${String(counterDays).padStart(2, '0')}:${String(counterHours).padStart(2, '0')}:${String(counterMinutes).padStart(2, '0')}:${String(counterSeconds).padStart(2, '0')}::${String(counterMilliseconds).padStart(3, '0')}.`;
     }, 50)
 }
