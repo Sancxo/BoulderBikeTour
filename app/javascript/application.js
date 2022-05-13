@@ -4,19 +4,23 @@ import "controllers"
 import "popper"
 import "bootstrap"
 import runCounter from "./counter";
+//= require_self
+//= require_tree .
 //= require popper
 //= require bootstrap
 
-// Style functions
-const navBar = document.getElementById("navbar");
-const jumbotron = document.getElementById("jumbotron");
-jumbotron.style.height = `calc(100vh - ${navBar.offsetHeight}px)`;
+document.addEventListener('turbo:load', _ => {
+    // Style functions
+    const navBar = document.getElementById("navbar");
+    const jumbotron = document.getElementById("jumbotron");
+    jumbotron.style.height = `calc(100vh - ${navBar.offsetHeight}px)`;
 
-const counter = document.getElementById('counter');
-setInterval(_ => {
-    counter.classList.toggle("text-danger");
-    counter.classList.toggle("text-light");
-}, 1000);
+    const counter = document.getElementById('counter');
+    setInterval(_ => {
+        counter.classList.toggle("text-danger");
+        counter.classList.toggle("text-light");
+    }, 1000);
 
-// Executions
-runCounter(counter);
+    // Executions
+    runCounter(counter);
+})
