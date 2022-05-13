@@ -7,4 +7,8 @@ import counter from "./counter";
 //= require popper
 //= require bootstrap
 
+const navBar = document.getElementById("navbar");
+const jumbotron = document.getElementById("jumbotron");
+jumbotron.style.height = `calc(100vh - ${navBar.offsetHeight}px)`;
+
 counter()
