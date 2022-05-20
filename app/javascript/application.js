@@ -20,13 +20,17 @@ document.addEventListener('turbo:load', _ => {
         const jumbotron = document.getElementById("jumbotron");
         jumbotron.style.height = `calc(100vh - ${navBar.offsetHeight}px)`;
 
+        const counterContainer = document.getElementById('counter-container');
+        counterContainer.classList.replace("d-none", "d-block");
+
         const counter = document.getElementById('counter');
+
         setInterval(_ => {
             counter.classList.toggle("text-danger");
             counter.classList.toggle("text-light");
         }, 1000);
 
         // Executions
-        runCounter(counter);   
+        runCounter(counter);
     }
 })

@@ -1,7 +1,5 @@
 <div id="photos-container" class="container p-3 mx-auto row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <%= javascript_tag do -%>  
-        const photosContainer = document.getElementById("photos-container");
-
         async function fetchFlickrAPI() {
             const resp = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=<%= ENV["FLICKR_API_KEY"] %>&tags=BoulderBikeTour%2C+BikeRace&safe_search=1&extras=date_taken%2C+owner_name%2C+views%2C+url_l&format=json&nojsoncallback=1`);
             const res = await resp.json();
@@ -10,6 +8,8 @@
         }
 
         (function loadFlickrPhotos() {
+            const photosContainer = document.getElementById("photos-container");
+
             const apiResp = fetchFlickrAPI();
             apiResp.then(data => {
                 const photos = data.photos.photo;
