@@ -1,21 +1,25 @@
 function loadPhotos(key) {
-    const page = 1;
     const photosPerPage = 40;
+    let page = 1;
+    let totalPages = 0;
 
-    async function fetchFlickrAPI() {
+    async function fetchFlickrAPI(page) {
         const resp = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=BoulderBikeTour%2C+BikeRace&per_page=${photosPerPage}&page=${page}&safe_search=1&extras=date_taken%2C+owner_name%2C+views%2C+url_l&format=json&nojsoncallback=1`);
-        const res = await resp.json();
         
-        return res;
+        if(!resp.ok) throw new Error(`Failed to load external ressources: ${resp.status}`);
+        
+        return await resp.json();
     }
 
-    (function loadFlickrPhotos() {
+    function loadFlickrPhotos(page) {
         const photosContainer = document.getElementById("photos-container");
 
-        const apiResp = fetchFlickrAPI();
+        const apiResp = fetchFlickrAPI(page);
         apiResp.then(data => {
+            totalPages = data.photos.pages;
+            
             const photos = data.photos.photo;
-            photos.map((photo, index) => {
+            photos.map((photo) => {
                 const col = document.createElement('div');
                 col.classList.add("col");
 
@@ -34,5 +38,16 @@ function loadPhotos(key) {
                 photosContainer.appendChild(col);
             })
         })
-    })()
+    }
+
+    document.addEventListener('scroll', _ => {
+        const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+
+        if (scrollTop + clientHeight >= scrollHeight - 10 && page <= totalPages) {
+            page++;
+            loadFlickrPhotos(page);
+        }
+    });
+
+    loadFlickrPhotos(page);
 }
