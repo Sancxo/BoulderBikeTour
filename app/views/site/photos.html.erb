@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'photoApi' %>
+
 <div id="photos-container" class="container p-3 mx-auto row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"></div>
 
 <div id="photo-modal" class="modal fade" tabindex="-1">
@@ -18,11 +20,7 @@
 </div>
 
 <%= javascript_tag do %> 
-  const script = document.createElement('script');
-  script.src = "assets/photoApi.js";
-  document.body.appendChild(script);
-
-  script.addEventListener('load', _ => {
+  setTimeout(_ => {
     loadPhotos("<%= ENV["FLICKR_API_KEY"] %>")
-  })
+  }, 50)
 <% end %>

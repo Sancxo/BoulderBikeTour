@@ -54,7 +54,6 @@ function loadPhotos(key) {
                 card.appendChild(imageTag);
                 col.appendChild(card);
                 photosContainer.appendChild(col);
-
             })
         })
     }
