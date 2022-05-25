@@ -33,6 +33,7 @@ function loadPhotos(key) {
                 const card = document.createElement("div");
                 card.classList.add('card');
                 card.style.width = "100%";
+                card.style.height = "18rem";
 
                 card.addEventListener('click', _ => {
                     const modalImg = document.getElementById("photo");
@@ -48,6 +49,7 @@ function loadPhotos(key) {
                 const imageTag = document.createElement('img');
                 imageTag.src = photo.url_l;
                 imageTag.style.objectFit = "cover";
+                imageTag.style.height = "100%";
 
                 card.appendChild(imageTag);
                 col.appendChild(card);
