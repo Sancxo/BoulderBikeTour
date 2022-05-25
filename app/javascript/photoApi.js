@@ -8,7 +8,9 @@ function loadPhotos(key) {
         
         if(!resp.ok) throw new Error(`Failed to load external ressources: ${resp.status}`);
         
-        return await resp.json();
+        let res = await resp.json();
+        console.log(res);
+        return res;
     }
 
     function loadFlickrPhotos(page) {
@@ -17,25 +19,40 @@ function loadPhotos(key) {
         const apiResp = fetchFlickrAPI(page);
         apiResp.then(data => {
             totalPages = data.photos.pages;
-            
+
+            const modal = document.getElementById('photo-modal');
+            const modalTitle = document.querySelector('h5.modal-title');
+            const modalBody = document.querySelector('div.modal-body');
+
             const photos = data.photos.photo;
             photos.map((photo) => {
+                
                 const col = document.createElement('div');
                 col.classList.add("col");
 
                 const card = document.createElement("div");
                 card.classList.add('card');
-                card.style.width = "18rem";
-                card.style.height = "18rem";
+                card.style.width = "100%";
+
+                card.addEventListener('click', _ => {
+                    const modalImg = document.getElementById("photo");
+
+                    modalTitle.innerHTML = `Photo n°${photo.id}`;
+                    modalImg.src = photo.url_l;
+
+                    modalBody.appendChild(modalImg);
+                    modal.classList.add('show');
+                    modal.style.display = 'block';
+                })
 
                 const imageTag = document.createElement('img');
                 imageTag.src = photo.url_l;
                 imageTag.style.objectFit = "cover";
-                imageTag.style.height = "100%";
 
                 card.appendChild(imageTag);
                 col.appendChild(card);
                 photosContainer.appendChild(col);
+
             })
         })
     }
@@ -50,4 +67,11 @@ function loadPhotos(key) {
     });
 
     loadFlickrPhotos(page);
+}
+
+function closeModal() {
+    const modal = document.getElementById('photo-modal');
+
+    modal.classList.remove('show');
+    modal.style.display = 'none';
 }
