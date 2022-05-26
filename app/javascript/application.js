@@ -12,6 +12,7 @@ import runCounter from "./counter";
 //= require bootstrap
 
 const navBar = document.getElementById("navbar");
+const goUp = document.getElementById('goUp');
 
 document.addEventListener('turbo:load', _ => {
     // Root page
@@ -34,3 +35,5 @@ document.addEventListener('turbo:load', _ => {
         runCounter(counter);
     }
 })
+
+goUp.onclick = _ => window.scrollTo({top: 0, behavior: 'smooth'});
