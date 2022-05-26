@@ -22,6 +22,29 @@
     max-width: 66vw !important;
  }
 
+ #loader { 
+    height: 100vh; 
+    display: none;
+   }
+ #loader > div {
+    height: 4em;
+    width: 4em;
+    padding: 1em;
+    border: .33em solid black;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    animation: rotate 1s infinite linear;
+ }
+
+@keyframes rotate {
+   from { transform: rotate(0deg); }
+   to { transform: rotate(360deg); }
+}
 //  #photo {
 //     margin: auto;
 //     max-width: 100%;
