@@ -12,9 +12,8 @@ import runCounter from "./counter";
 //= require bootstrap
 
 const navBar = document.getElementById("navbar");
-const goUp = document.getElementById('goUp');
 
-document.addEventListener('turbo:load', _ => {
+//document.addEventListener('turbo:load', _ => {
     // Root page
     if (window.location.pathname === "/") {
         // Homepage style functions
@@ -34,6 +33,4 @@ document.addEventListener('turbo:load', _ => {
         // Executions
         runCounter(counter);
     }
-})
-
-goUp.onclick = _ => window.scrollTo({top: 0, behavior: 'smooth'});
+//})
