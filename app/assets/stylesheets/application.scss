@@ -14,7 +14,7 @@
 
  @import "bootstrap";
 
- #jumbotron {
+ div[data-controller="jumbotron"] {
     background: center / cover url("cycling/MJS_bikerace.webp") no-repeat;
  }
 
@@ -45,14 +45,14 @@
    to { transform: rotate(360deg); }
  }
 
- #goUp {
+ #go-up-icon {
     position: fixed;
     bottom: 1em;
     right: 1em;
     width: 3rem;
     cursor: pointer;
  }
- #goUp:hover {
+ #go-up-icon:hover {
     animation: shake 375ms ease-in-out;
  }
 @keyframes shake {
@@ -61,9 +61,3 @@
    75% { transform: rotate(10deg) }
    100% { transform: rotate(-10deg) }
 }
-
-//  #photo {
-//     margin: auto;
-//     max-width: 100%;
-//     max-height: 100%;
-//  }
