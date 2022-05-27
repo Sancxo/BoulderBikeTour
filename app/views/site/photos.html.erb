@@ -1,28 +1,22 @@
-<%= javascript_include_tag 'photoApi' %>
+<div data-controller="photos" data-photos-key-value="<%= ENV["FLICKR_API_KEY"] %>">
+  <%= render 'layouts/loader' %>
+  
+  <div data-photos-target="photosContainer" class="container p-3 mx-auto row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"></div>
 
-<%= render 'layouts/loader' %>
-
-<div id="photos-container" class="container p-3 mx-auto row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"></div>
-
-<div id="photo-modal" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" onclick="closeModal();" aria-label="Close"></button>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <%= image_tag '', id: 'photo' %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"  onclick="closeModal();" data-bs-dismiss="modal">Close</button>
+  <div data-photos-target="photoModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 data-photos-target="modalTitle" class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-action="click->photos#closeModal" onclick="closeModal();" aria-label="Close"></button>
+        </div>
+        <div data-photos-target="modalBody" class="modal-body d-flex justify-content-center">
+          <%= image_tag '', data: {photos_target: 'modalImg'} %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-action="click->photos#closeModal" onclick="closeModal();" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= javascript_tag do %> 
-  setTimeout(_ => {
-    loadPhotos("<%= ENV["FLICKR_API_KEY"] %>")
-  }, 50)
-<% end %>
