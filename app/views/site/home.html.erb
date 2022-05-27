@@ -1,9 +1,9 @@
-<div id="jumbotron" class="d-flex w-100 p-3 mx-auto flex-column text-center position-relative">
+<div data-controller="jumbotron" class="d-flex w-100 p-3 mx-auto flex-column text-center position-relative">
     <div id="counter-container" class="d-none bg-dark bg-opacity-75 rounded px-5 pt-4 pb-3 text-light position-absolute top-50 start-50 translate-middle">
         <h1 class="display-1 mb-3">Boulder Bike Tour</h1>
-        <div>
-            <p id="race-date" class="fs-5"></p>
-            <p id="counter" class="fs-2 text-light"></p>
+        <div data-controller="counter">
+            <p data-counter-target="raceDate" class="fs-5"></p>
+            <p data-counter-target="counter" class="fs-2 text-light"></p>
         </div>
     </div>
 </div>
