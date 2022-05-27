@@ -11,7 +11,7 @@ export default class extends Controller {
         let totalPages = 0;
 
         async function fetchFlickrAPI(page) {
-            const resp = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${that.keyValue}&tags=BoulderBikeTour%2C+BikeRace&per_page=${photosPerPage}&page=${page}&safe_search=1&extras=date_taken%2C+owner_name%2C+views%2C+url_s%2C+url_l%2C+url_o&format=json&nojsoncallback=1`);
+            const resp = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${that.keyValue}&tags=BoulderBikeTour%2C+BikeRace&per_page=${photosPerPage}&page=${page}&safe_search=1&extras=date_taken%2C+owner_name%2C+views%2C+url_m%2C+url_l%2C+url_c&format=json&nojsoncallback=1`);
             
             if(!resp.ok) throw new Error(`Failed to load external ressources: ${resp.status}`);
             
@@ -35,7 +35,7 @@ export default class extends Controller {
                 card.addEventListener('click', _ => { 
 
                     that.modalTitleTarget.innerHTML = `Photo n°${photo.id}`;
-                    that.modalImgTarget.src = photo.url_o ? photo.url_o : photo.url_l;
+                    that.modalImgTarget.src = photo.url_l ? photo.url_l : photo.url_c;
     
                     that.modalBodyTarget.appendChild(that.modalImgTarget);
                     that.photoModalTarget.classList.add('show');
@@ -43,7 +43,7 @@ export default class extends Controller {
                 })
     
                 const imageTag = document.createElement('img');
-                imageTag.src = photo.url_s;
+                imageTag.src = photo.url_m;
                 imageTag.style.objectFit = "cover";
                 imageTag.style.height = "100%";
     
