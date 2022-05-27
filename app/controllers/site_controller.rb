@@ -4,4 +4,8 @@ class SiteController < ApplicationController
 
     def photos
     end
+
+    def riders
+        @riders = Rider.all 
+    end
 end

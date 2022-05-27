@@ -1,0 +1,9 @@
+<div class="col">
+  <div id="<%= dom_id rider %>" class="card my-2 mx-auto" style="width: 18rem; height: 25rem" role="button">
+    <div class="card-img <%= rider_avatar(rider.gender) %>"></div>
+    <div class="card-body p-2">
+      <h5 class="card-title text-center"><%= rider.first_name %> <%= rider.last_name %></h5>
+      <p class="card-text text-center"><%= rider.city %> - <%= rider.state %></p>
+    </div>
+  </div>
+</div>
