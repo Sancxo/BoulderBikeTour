@@ -58,20 +58,20 @@
  #go-up-icon:hover {
     animation: shake 375ms ease-in-out;
  }
-@keyframes shake {
-   25% { transform: rotate(10deg) }
-   50% { transform: rotate(-10deg) }
-   75% { transform: rotate(10deg) }
-   100% { transform: rotate(-10deg) }
-}
+ @keyframes shake {
+    25% { transform: rotate(10deg) }
+    50% { transform: rotate(-10deg) }
+    75% { transform: rotate(10deg) }
+    100% { transform: rotate(-10deg) }
+ }
 
-// Riders cards
-.card-img {
-   height: 22rem;
-}
-.man {
-   background: center / cover no-repeat url("icons/avatar_man.png");
-}
-.woman {
-   background: center / cover no-repeat url("icons/avatar_woman.png");   
-}
+ // Riders cards
+ .card-img {
+    height: 22rem;
+ }
+ .man {
+    background: center / cover no-repeat url("icons/avatar_man.png");
+ }
+ .woman {
+    background: center / cover no-repeat url("icons/avatar_woman.png");   
+ }
