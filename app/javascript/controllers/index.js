@@ -6,6 +6,7 @@ import Jumbotron from "controllers/jumbotron_controller";
 import Counter from "controllers/counter_controller";
 import GoUp from "controllers/goUp_controller";
 import Photos from "controllers/photos_controller";
+import Map  from "controllers/map_controller";
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
@@ -18,3 +19,4 @@ lazyLoadControllersFrom("controllers", Jumbotron);
 lazyLoadControllersFrom("controllers", Counter);
 lazyLoadControllersFrom("controllers", GoUp);
 lazyLoadControllersFrom("controllers", Photos);
+lazyLoadControllersFrom("controllers", Map);
