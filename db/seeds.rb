@@ -7,26 +7,26 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 riders_list = [
-    ["Dustin",      "Green",	    "M",  "Hickory Hills",	    "IL",	{lat: 40.00, lng: -105.35}],
-    ["Jason",       "Finn",	        "M",  "Huntington Beach",	"CA",	{lat: 39.95, lng: -105.24}],
-    ["Howard",	    "Thompson",	    "M",  "Hale",	            "MO",	{lat: 40.06, lng: -105.26}],
-    ["Maggie",	    "Lantz",	    "F",  "Dublin",	            "OH",	{lat: 40.03, lng: -105.23}],
-    ["Lawrence",	"Duran",	    "M",  "Fort Myers",	        "FL",	{lat: 40.04, lng: -105.23}],
-    ["Irene",	    "Molina",	    "F",  "Tucson",	            "AZ",	{lat: 39.96, lng: -105.22}],
-    ["Nancy",	    "Garner",	    "F",  "Baltimore",	        "MD",	{lat: 39.98, lng: -105.21}],
-    ["Tara",        "Taylor",	    "F",  "Minneapolis",	    "MN",	{lat: 40.00, lng: -105.25}],
-    ["Alejandro",   "Smith",	    "M",  "Scarborough",	    "ME",	{lat: 40.02, lng: -105.26}],
-    ["Tricia",	    "Renshaw",	    "F",  "Mystic",	            "CT",	{lat: 40.02, lng: -105.30}],
-    ["Travis",	    "Cook",	        "M",  "Twin Lakes",	        "WI",	{lat: 40.01, lng: -105.20}],
-    ["Joan",	    "Brooks",	    "F",  "Norfolk",	        "VA",	{lat: 39.98, lng: -105.24}],
-    ["Joseph",	    "Rodgers",	    "M",  "Wayne",	            "NJ",	{lat: 39.99, lng: -105.25}],
-    ["Matthew",	    "Gregson",	    "M",  "Brashear",	        "MO",	{lat: 40.01, lng: -105.29}],
-    ["Katie",	    "Dunlap",	    "F",  "Marion",	            "VA",	{lat: 39.97, lng: -105.27}],
-    ["Leo",	        "Howard",	    "M",  "Dallas",	            "TX",	{lat: 39.97, lng: -105.33}],
-    ["Maria",	    "Baisden",	    "F",  "Raleigh",	        "NC",	{lat: 40.00, lng: -105.29}],
-    ["Sandy",	    "Townsend",     "F",  "Newport",	        "PA",	{lat: 40.05, lng: -105.30}],
-    ["Melinda",	    "Stephenson",   "F",  "Kahului",	        "HI",	{lat: 39.99, lng: -105.31}],
-    ["Jason",	    "Nichols",	    "M",  "Alexandria",	        "VA",	{lat: 40.01, lng: -105.32}]
+    ["Dustin",      "Green",	    "M",  "Hickory Hills",	    "IL",	[40.00, -105.35]],
+    ["Jason",       "Finn",	        "M",  "Huntington Beach",	"CA",	[39.95, -105.24]],
+    ["Howard",	    "Thompson",	    "M",  "Hale",	            "MO",	[40.06, -105.26]],
+    ["Maggie",	    "Lantz",	    "F",  "Dublin",	            "OH",	[40.03, -105.23]],
+    ["Lawrence",	"Duran",	    "M",  "Fort Myers",	        "FL",	[40.04, -105.23]],
+    ["Irene",	    "Molina",	    "F",  "Tucson",	            "AZ",	[39.96, -105.22]],
+    ["Nancy",	    "Garner",	    "F",  "Baltimore",	        "MD",	[39.98, -105.21]],
+    ["Tara",        "Taylor",	    "F",  "Minneapolis",	    "MN",	[40.00, -105.25]],
+    ["Alejandro",   "Smith",	    "M",  "Scarborough",	    "ME",	[40.02, -105.26]],
+    ["Tricia",	    "Renshaw",	    "F",  "Mystic",	            "CT",	[40.02, -105.30]],
+    ["Travis",	    "Cook",	        "M",  "Twin Lakes",	        "WI",	[40.01, -105.20]],
+    ["Joan",	    "Brooks",	    "F",  "Norfolk",	        "VA",	[39.98, -105.24]],
+    ["Joseph",	    "Rodgers",	    "M",  "Wayne",	            "NJ",	[39.99, -105.25]],
+    ["Matthew",	    "Gregson",	    "M",  "Brashear",	        "MO",	[40.01, -105.29]],
+    ["Katie",	    "Dunlap",	    "F",  "Marion",	            "VA",	[39.97, -105.27]],
+    ["Leo",	        "Howard",	    "M",  "Dallas",	            "TX",	[39.97, -105.33]],
+    ["Maria",	    "Baisden",	    "F",  "Raleigh",	        "NC",	[40.00, -105.29]],
+    ["Sandy",	    "Townsend",     "F",  "Newport",	        "PA",	[40.05, -105.30]],
+    ["Melinda",	    "Stephenson",   "F",  "Kahului",	        "HI",	[39.99, -105.31]],
+    ["Jason",	    "Nichols",	    "M",  "Alexandria",	        "VA",	[40.01, -105.32]]
 ]
 
 riders_list.each do |first_name, last_name, gender, city, state, lat_long|
