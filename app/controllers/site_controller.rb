@@ -8,4 +8,8 @@ class SiteController < ApplicationController
     def riders
         @riders = Rider.all 
     end
+
+    def locations
+        @riders = Rider.all
+    end
 end

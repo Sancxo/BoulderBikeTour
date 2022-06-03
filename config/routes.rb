@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'site#home'
   get '/photos' => 'site#photos', as: :photos
   get '/riders' => 'site#riders', as: :riders
+  get '/locations' => 'site#locations', as: :locations
 end
