@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/photos' => 'site#photos', as: :photos
   get '/riders' => 'site#riders', as: :riders
   get '/locations' => 'site#locations', as: :locations
+  get '/contest' => 'site#contest', as: :submissions
+  post '/contest' => 'site#submit'
 end
