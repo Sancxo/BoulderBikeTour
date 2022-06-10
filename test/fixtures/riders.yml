@@ -1,15 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  city: MyString
-  state: MyString
-  lat_long: 
+  first_name: Simon
+  last_name: Tirant
+  gender: M
+  city: Bezons
+  state: IdF
+  lat_long: [48.921673248462544, 2.264614514764815]
 
 two:
-  first_name: MyString
-  last_name: MyString
-  city: MyString
-  state: MyString
-  lat_long: 
+  first_name: Test
+  last_name: McTest
+  gender: 
+  city: Bezons
+  state: IdF
+  lat_long: [48.9233205261326, 2.2095413235852366]

@@ -1,0 +1,11 @@
+one:
+  first_name: Simon
+  last_name: Tirant
+  email: test@test
+  slogan: Ceci est mon slogan!
+
+two:
+  first_name: Test
+  last_name: McTest
+  email: test@test.test
+  slogan: This is my test, for sure!
