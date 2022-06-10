@@ -13,23 +13,26 @@
         <% end %>
 
         <div class="mb-3">
+            <p class="text-center">All fields below are required.</p>
+        </div>
+        <div class="mb-3">
             <%= form.label :first_name, style: "display: block", class: "form-label" %>
-            <%= form.text_field :first_name, class: "form-control" %>
+            <%= form.text_field :first_name, class: "form-control", required: true %>
         </div>
 
         <div class="mb-3">
             <%= form.label :last_name, style: "display: block", class: "form-label" %>
-            <%= form.text_field :last_name, class: "form-control" %>
+            <%= form.text_field :last_name, class: "form-control", required: true %>
         </div>
 
         <div class="mb-3">
             <%= form.label :email, style: "display: block", class: "form-label" %>
-            <%= form.email_field :email, class: "form-control" %>
+            <%= form.email_field :email, class: "form-control", required: true %>
         </div>
 
         <div class="mb-3">
             <%= form.label :slogan, style: "display: block", class: "form-label" %>
-            <%= form.text_area :slogan, size: "30x5", class: "form-control" %>
+            <%= form.text_area :slogan, size: "30x5", class: "form-control", required: true %>
         </div>
 
         <div class="text-center mb-3">
