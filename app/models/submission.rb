@@ -3,8 +3,12 @@ class Submission < ApplicationRecord
 
     validates :first_name, presence: true
     validates :last_name, presence: true
-    validates :email, presence: true, format: {with: EMAIL_FORMAT, 
+    validates :email, 
+        presence: true, 
+        confirmation: {case_sensitive: false}, 
+        format: {with: EMAIL_FORMAT, 
         message: "Your email address should respect the correct email address format."}
+    validates :email_confirmation, presence: true
     validates :slogan, presence: true, length: {in: 2..50}
 
     before_save {self.email = email.downcase}

@@ -31,6 +31,6 @@ class SiteController < ApplicationController
     end
 
     def submission_params
-      params.require(:submission).permit(:first_name, :last_name, :email, :slogan)
+      params.require(:submission).permit(:first_name, :last_name, :email, :email_confirmation, :slogan)
     end
 end
