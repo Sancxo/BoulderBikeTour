@@ -6,4 +6,6 @@ class Submission < ApplicationRecord
     validates :email, presence: true, format: {with: EMAIL_FORMAT, 
         message: "Your email address should respect the correct email address format."}
     validates :slogan, presence: true, length: {in: 2..50}
+
+    before_save {self.email = email.downcase}
 end
