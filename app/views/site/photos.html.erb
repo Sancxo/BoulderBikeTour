@@ -4,6 +4,8 @@
   <div data-photos-target="photosContainer" class="container p-3 mx-auto row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"></div>
   <p class="text-center">Loading ...</p>
 
+
+  <!-- Modal -->
   <div data-photos-target="photoModal" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -11,9 +13,10 @@
           <h5 data-photos-target="modalTitle" class="modal-title">Modal title</h5>
           <button type="button" class="btn-close" data-action="click->photos#closeModal" aria-label="Close"></button>
         </div>
-        <div data-photos-target="modalBody" class="modal-body d-flex justify-content-center">
+        <div data-photos-target="modalBody" class="modal-body d-flex flex-column justify-content-center">
           <p id="photoLoadingText" class="position-absolute top-50 start-50 translate-middle">Loading image ...</p>
           <%= image_tag '', data: {photos_target: 'modalImg'}, class: "z-1", loading: "lazy" %>
+          <p data-photos-target="imgDesc" class="text-center mt-3"><p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-action="click->photos#closeModal" data-bs-dismiss="modal">Close</button>
